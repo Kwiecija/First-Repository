@@ -1,32 +1,46 @@
 package ca.sheridancollege.project;
 
-/**
- *  This class +++INSERT DESCRIPTION HERE+++
- *
- * @author Jacob Kwiecinski
- */
-public class UnoCard extends Card{
+public class UnoCard {
 
-    enum Color {
+    public enum Color {
         RED, BLUE, GREEN, YELLOW, WILD
     }
-    enum Value {
-        ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, DRAWTWO, SKIP, REVERSE, WILD, WILDFOUR
+    public enum Value {
+        ZERO, ONE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, DRAWTWO, SKIP, REVERSE, WILD, WILDFOUR
     }
     
+    private final Value value;
+    private Color color;
+
     UnoCard(Color color, Value value) {
-        
+        this.value = value;
+        this.color = color;
     }
     
     public Color getColor() {
-        return null;
+        return this.color;
     }
     public Value getValue() {
-        return null;
+        return this.value;
+    }
+    public void setColor(Color color) {
+        this.color = color;
     }
     
-    @Override
     public String toString() {
-        return null;
+
+        if(color == Color.WILD) {
+            return value.toString();
+        } else {
+            return color + " " + value;
+        }
+    }
+
+    public boolean canPlace(UnoCard card) {
+        if(this.color == card.getColor() || this.value == card.getValue() || this.color == Color.WILD) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
