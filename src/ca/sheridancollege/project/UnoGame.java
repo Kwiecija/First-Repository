@@ -275,7 +275,7 @@ public class UnoGame {
      * 
      * @return UnoCard
      */
-    private UnoCard draw() {
+    public UnoCard draw() {
 
         // reshuffle deck if empty
         if (drawPile.getCards().isEmpty()) {
@@ -292,5 +292,23 @@ public class UnoGame {
         drawPile.getCards().remove(drawPile.getCards().size() - 1);
 
         return card;
+    }
+    
+    /**
+     * DrawPile Getter
+     * 
+     * @return drawPile
+     */
+    public UnoDeck getDrawPile() {
+        return drawPile;
+    }
+    
+    /**
+     * PlayPile Getter
+     * 
+     * @return playPile
+     */
+    public ArrayList<UnoCard> getPlayPile() {
+        return playPile;
     }
 }
